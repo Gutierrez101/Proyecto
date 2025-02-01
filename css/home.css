@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
+.header {
+    display: flex;
+    height: 650px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003c44;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+
+
+/*Inicio Página Header actions1*/
+.div_actions_1_header{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 80px;
+    margin: 26px;
+}
+
+.div-actions1-header-buscar input {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    width: 337px;
+}
+
+.icons_head{
+    display: flex;
+    padding: 10px;
+}
+.icons_head a{
+    padding-left: 20px ;
+    color: white;
+}
+
+.div-actions1-header-buscar{
+    padding: 0px 20px 0px 30px;
+}
+
+.div-actions1-header-hablemos{
+    padding: 8px 40px;
+}
+
+.div-actions1-header-carrito{
+    padding: 0px 40px 0px 75px;
+}
+
+.btn_hablemos {
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+
+.a_btn_carrito, .a_btn_ingresa {
+    text-decoration: none;
+}
+
+.btn_carrito, .btn_ingresar {
+    background-color: #4FD1C5;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 150px;
+}
+
+
+
+
+
+/*Inicio Página Header*/
+.nav_actions_2{
+    display: flex; /* Usamos flex para alinear los elementos en fila */
+    justify-content: space-around; /* Espacio entre los elementos de la barra */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Elimina los puntos de las listas */
+    background-color: #003545;
+
+}
+.nav_actions_2 li {
+    position: relative; /* Necesario para el submenú */
+}
+.nav_actions_2 li a {
+    display: block; /* Para que el enlace ocupe toda la área del li */
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+.nav_actions_2 li a:hover {
+    background-color: #007BFF; /* Color al pasar el mouse sobre el enlace */
+}
+
+
+/* Submenú (acciones_2_menu_vertical) */
+.actions_2_menu_vertical {
+    display: none; /* Por defecto el submenú está oculto */
+    position: absolute; /* Para colocarlo debajo del elemento principal */
+    top: 100%; /* Se posiciona justo debajo del enlace */
+    left: 0;
+    background-color: #005b77;
+    list-style: none;
+    width: 200px; /* El ancho del submenú */
+}
+.nav_actions_2 li:hover .actions_2_menu_vertical {
+    display: block; /* Muestra el submenú cuando el li es hover */
+}
+.actions_2_menu_vertical li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+.actions_2_menu_vertical li a:hover {
+    background-color: #007BFF; /* Color de fondo al pasar el mouse por los submenús */
+}
+
+
+
+
+
+
+/*IMAGEN DEL HEADER*/
+.slider-frame{
+    width: 1280px;
+    height: 400px;
+    margin: 20px auto 0;
+    overflow: hidden;
+}
+
+.slider-frame ul{
+    display: flex;
+    padding: 0;
+    width: 400%;
+
+    animation: slide 15s infinite alternate ease-in-out;
+}
+
+.slider-frame li{
+    list-style: none;
+    width: 100%;
+}
+
+.slider-frame img{
+    width: 100%;
+}
+
+@keyframes slide { 
+    0% {margin-left: 0%;}
+    20% {margin-left: 0%;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    95% {margin-left: -300%;}
+}
+
+
+
+
+
+
+
+
+
+/*Contenedores del header*/
+.div_header{
+    width: 100%;
+    height: 100%;
+}
+.div_logo_actions_header{
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    height: 80px;
+}
+.div_h1{
+    margin: 20px 20px 20px 20px;
+}
+
+
+
+/*MAIN*/
+/*titles start*/
+.main {
+    text-align: center;
+    padding: 2rem;
+}
+
+.container-titles-start{
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background: rgb(240, 240, 240);
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0px 10px 40px 10px;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.product-card button {
+    margin: 0px 0px 20px 0px;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00B7C3;
+    color: white;
+    cursor: pointer;
+}
+
+.product-content h4{
+    color: #001751;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.precio-product-word{
+    color: #00B7C3;
+    font-size: 13px;
+}
+
+.precio-product{
+    color: #00B7C3;
+    font-weight: 900;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+/*FOOTER*/
+.footer {
+    background-color: #003545;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin: 0px;
+    padding: 15px;
+}
+
+.footer-columns {
+    display: flex;
+    text-align: left;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.footer-columns div{
+    margin: 20px;
+    padding: 0px 20px 0px 20px;
+}
+
+.derechos-reservados{
+    display: flex;
+    border-top: 1px solid white;
+    padding: 12px 0px 20px 0px;
+}
+
+.derechos-reservados1{
+    padding-left: 20px;
+}
+
+.derechos-reservados2{
+    display: flex;
+    padding-left: 950px;
+}
+
+.derechos-reservados2 i{
+    margin: 0px 10px 0px 10px;
+    padding-top: 8px;
+    color: red;
+}
+
+.footer-columns a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-columns i {
+    color: #00B7C3;
+    padding-right: 5px;
+}
