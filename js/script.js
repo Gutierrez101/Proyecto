@@ -38,7 +38,7 @@ function loginUser() {
     .then(data => {
         if (data.success) {
             alert("Inicio de sesión exitoso.");
-            window.location.href = "dashboard.html";
+            window.location.href = "/html/home.html";
         } else {
             alert("Usuario o contraseña incorrectos.");
         }
