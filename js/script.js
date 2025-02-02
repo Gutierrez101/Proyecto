@@ -34,17 +34,18 @@ function loginUser() {
         method: "POST",
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response.json()) // Espera respuesta JSON
     .then(data => {
-        if (data.success) {
+        if (data.status === "success") {
             alert("Inicio de sesión exitoso.");
-            window.location.href = "../html/home.html";
+            window.location.href = "../html/home.html"; // Redirige si el login es exitoso
         } else {
-            alert("Usuario o contraseña incorrectos.");
+            alert(data.message || "Usuario o contraseña incorrectos.");
         }
     })
     .catch(error => {
         console.error("Error en la solicitud:", error);
+        alert("Hubo un error en la solicitud, por favor intente nuevamente.");
     });
 }
 
@@ -65,15 +66,16 @@ function createUser() {
         method: "POST",
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response.json()) // Espera respuesta JSON
     .then(data => {
-        if (data.success) {
+        if (data.status === "success") {
             alert("Usuario creado exitosamente. Ahora puede iniciar sesión.");
         } else {
-            alert("Error al crear usuario: " + data.message);
+            alert("Error al crear usuario: " + (data.message || "Intente nuevamente."));
         }
     })
     .catch(error => {
         console.error("Error en la solicitud:", error);
+        alert("Hubo un error en la solicitud, por favor intente nuevamente.");
     });
 }

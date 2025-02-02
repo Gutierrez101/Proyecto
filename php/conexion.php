@@ -4,7 +4,6 @@ $user="root";
 $password="";
 $database="fusionvibes_db";
 
-
 $conn=new mysqli($host,$user,$password,$database);
 
 if($conn->connect_error){
