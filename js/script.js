@@ -30,7 +30,7 @@ function loginUser() {
     formData.append("username", username);
     formData.append("password", password);
 
-    fetch("/php/login.php", {
+    fetch("../php/login.php", {
         method: "POST",
         body: formData
     })
@@ -61,7 +61,7 @@ function createUser() {
     formData.append("username", username);
     formData.append("password", password);
 
-    fetch("/php/registrar.php", {
+    fetch("../php/registrar.php", {
         method: "POST",
         body: formData
     })
