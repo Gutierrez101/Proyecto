@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../js/html2canvas.js"></script>
+    <script src="../js/jspdf.debug.js"></script>
+    <script src="../js/jspdf.plugin.autotable.min.js"></script>
     <title>Carrito</title>
 </head>
 <body>
@@ -54,7 +57,7 @@
             <h2>Tu carrito</h2>
             <img src="../Images/entrega.png" width="50" height="50">
             <p>No tienes Productos en el carrito aun</p>
-            <button class="checkout-btn" onclick="">Ir a pagar</button>
+            <button class="checkout-btn" onclick="GenerarPDF()">Ir a pagar</button>
         </div>
 </main>
 
@@ -105,3 +108,28 @@
 </footer>
 </body>
 </html>
+<script>
+    //formato de la factura
+    function GenerarPDF(){
+        
+        var doc=new jsPDF();
+        var y=10;
+        var x=10;
+        doc.setFonType=('times');
+        doc.setFontSize(18);
+        doc.text(90,y,"Factura");
+        y+=10;
+        doc.setFontSize(12);
+        doc.text(x,y,'Nombre');
+        doc.text(x,y+10,'Echo Pop');
+        doc.text(x+30,y,'Descripcion');
+        doc.text(x+30,y+10,'Producto Tecnologico');
+        doc.text(x+75,y,'Cantidad');
+        doc.text(x+82,y+10,'3');
+        doc.text(x+100,y,'Precio unitario');
+        doc.text(x+107,y+10,'25.56');
+        doc.text(x+140,y,'Precio Total');
+        doc.text(x+145,y+10,'135.67');
+        doc.save("Fectura.pdf");
+    }
+</script>
