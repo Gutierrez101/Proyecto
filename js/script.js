@@ -26,26 +26,28 @@ function loginUser() {
         return;
     }
 
+    // Cifrar la contraseña en el cliente
+    let hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Base64);
+
     let formData = new FormData();
     formData.append("username", username);
-    formData.append("password", password);
+    formData.append("password", hashedPassword);
 
     fetch("../php/login.php", {
         method: "POST",
         body: formData
     })
-    .then(response => response.json()) // Espera respuesta JSON
+    .then(response => response.json())
     .then(data => {
-        if (data.status === "success") {
+        if (data.status === 'success') {
             alert("Inicio de sesión exitoso.");
-            window.location.href = "../html/home.html"; // Redirige si el login es exitoso
+            window.location.href = "../html/home.html";
         } else {
-            alert(data.message || "Usuario o contraseña incorrectos.");
+            alert(data.message);
         }
     })
     .catch(error => {
         console.error("Error en la solicitud:", error);
-        alert("Hubo un error en la solicitud, por favor intente nuevamente.");
     });
 }
 
