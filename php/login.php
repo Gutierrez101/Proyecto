@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+    if ($result->num_rows === 3) {
         $row = $result->fetch_assoc();
 
         // Comparar la contraseña cifrada con el almacenado en la base de datos

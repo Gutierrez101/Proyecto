@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     let loginBtn = document.getElementById("loginBtn");
-    let createUserBtn = document.getElementById("createUserBtn");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", function (event) {
@@ -9,17 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (createUserBtn) {
-        createUserBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            createUser();
-        });
-    }
 });
 
 function loginUser() {
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
     if (username === "" || password === "") {
         alert("Por favor, complete todos los campos.");
