@@ -51,33 +51,3 @@ function loginUser() {
     });
 }
 
-function createUser() {
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
-
-    if (username === "" || password === "") {
-        alert("Por favor, complete todos los campos.");
-        return;
-    }
-
-    let formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
-
-    fetch("../php/registrar.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json()) // Espera respuesta JSON
-    .then(data => {
-        if (data.status === "success") {
-            alert("Usuario creado exitosamente. Ahora puede iniciar sesión.");
-        } else {
-            alert("Error al crear usuario: " + (data.message || "Intente nuevamente."));
-        }
-    })
-    .catch(error => {
-        console.error("Error en la solicitud:", error);
-        alert("Hubo un error en la solicitud, por favor intente nuevamente.");
-    });
-}
