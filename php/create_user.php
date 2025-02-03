@@ -20,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Cifrar la contraseña
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insertar los datos en la base de datos
     $sql = "INSERT INTO usuarios (username, password) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $hashed_password);
+    $stmt->bind_param("ss", $username, $password);
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "Usuario creado exitosamente."]);

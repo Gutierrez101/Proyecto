@@ -27,11 +27,11 @@ function loginUser() {
     }
 
     // Cifrar la contraseña en el cliente
-    let hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Base64);
+    //let hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Base64);
 
     let formData = new FormData();
     formData.append("username", username);
-    formData.append("password", hashedPassword);
+    formData.append("password", password);
 
     fetch("../php/login.php", {
         method: "POST",
