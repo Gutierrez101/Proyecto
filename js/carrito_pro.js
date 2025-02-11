@@ -47,36 +47,45 @@ function inicializarCarrito() {
 
     function cargarCarrito() {
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        
-        console.log("Productos en el carrito:", carrito); // Depuración
+    const contenedorCarrito = document.querySelector(".contenedor");
 
-        contenedorCarrito.innerHTML = `
-            <span class="cerrado">&times;</span>
-            <h2>Tu carrito</h2>
-            <img src="../Images/entrega.png" width="50" height="50">
-        `;
+    contenedorCarrito.innerHTML = `
+        <span class="cerrado">&times;</span>
+        <h2>Tu carrito</h2>
+        <img src="../Images/entrega.png" width="50" height="50">
+    `;
 
-        if (carrito.length === 0) {
-            contenedorCarrito.innerHTML += `<p>No tienes productos en el carrito aún.</p>`;
-        } else {
-            carrito.forEach((producto, index) => {
-                contenedorCarrito.innerHTML += `
-                    <div class="producto-carrito">
-                        <img src="${producto.imgSrc}" width="50" height="50">
-                        <p>${producto.nombre} - $${producto.precio} x ${producto.cantidad}</p>
-                        <button class="eliminar" data-index="${index}">Eliminar</button>
+    if (carrito.length === 0) {
+        contenedorCarrito.innerHTML += `<p class="carrito-vacio">No tienes productos en el carrito aún.</p>`;
+    } else {
+        const listaProductos = document.createElement("div");
+        listaProductos.classList.add("lista-productos");
+
+        carrito.forEach((producto, index) => {
+            listaProductos.innerHTML += `
+                <div class="producto-carrito">
+                    <img src="${producto.imgSrc}" alt="${producto.nombre}">
+                    <div class="info-producto">
+                        <h3>${producto.nombre}</h3>
+                        <p>Precio: $${producto.precio}</p>
+                        <p>Cantidad: ${producto.cantidad}</p>
                     </div>
-                `;
-            });
+                    <button class="eliminar" data-index="${index}">Eliminar</button>
+                </div>
+            `;
+        });
 
-            contenedorCarrito.innerHTML += `<button class="checkout-btn">Vaciar Carrito</button>`;
-        }
+        contenedorCarrito.appendChild(listaProductos);
 
-        // Asegurar que el botón "Vaciar Carrito" tenga el evento correcto
-        const botonVaciar = document.querySelector(".checkout-btn");
-        if (botonVaciar) {
-            botonVaciar.addEventListener("click", vaciarCarrito);
-        }
+        // Agregar botones "Vaciar Carrito" e "Ir a pagar"
+        contenedorCarrito.innerHTML += `
+            <button class="checkout-btn" id="vaciar-carrito">Vaciar Carrito</button>
+            <button class="checkout-btn pagar-btn" onclick="GenerarPDF()">Ir a pagar</button>
+        `;
+    }
+
+        // Asignar evento al botón "Vaciar Carrito"
+        document.getElementById("vaciar-carrito")?.addEventListener("click", vaciarCarrito);
     }
 
     function eliminarProducto(index) {
