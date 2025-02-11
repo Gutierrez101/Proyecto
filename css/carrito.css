@@ -135,3 +135,20 @@
     color: #777;
     margin-top: 20px;
 }
+
+/* Personalización de SweetAlert2 */
+.swal2-popup-custom {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.swal2-title-custom {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.swal2-text-custom {
+    font-size: 16px;
+    color: #666;
+}

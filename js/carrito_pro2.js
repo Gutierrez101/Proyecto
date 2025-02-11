@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.querySelector(".products")) {
-        inicializarProductosMain();
+    if (document.querySelector("#products-list") || document.querySelector(".product-card")) {
+        inicializarProductos();
     } else if (document.querySelector(".contenedor")) {
         inicializarCarrito();
     }
 });
 
-// Función para agregar productos desde `<main>` en la tienda principal
-function inicializarProductosMain() {
-    const botones = document.querySelectorAll(".product-card button");
+// 1️⃣ Función para agregar productos desde `<div id="products-list">` en la tienda
+function inicializarProductos() {
+    const botones = document.querySelectorAll(".carrito_button");
 
     if (botones.length === 0) {
         console.error("⚠ No se encontraron botones de 'Añadir al carrito'. Verifica la estructura del HTML.");
@@ -17,11 +17,11 @@ function inicializarProductosMain() {
 
     botones.forEach(boton => {
         boton.addEventListener("click", (event) => {
-            const producto = event.target.closest(".product-card");
+            const producto = event.target.closest(".product");
             if (!producto) return;
 
-            const nombre = producto.querySelector(".title-product")?.textContent.replace("\n", " ") || "Producto sin nombre";
-            const precio = producto.querySelector(".precio-product")?.textContent.replace("$", "") || "0.00";
+            const nombre = producto.querySelector("h3")?.textContent || "Producto sin nombre";
+            const precio = producto.querySelector("p")?.textContent.replace("Precio: $", "") || "0.00";
             const imgSrc = producto.querySelector("img")?.src || "";
 
             let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -36,28 +36,12 @@ function inicializarProductosMain() {
 
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
-           // 🔥 Nuevo Alert con SweetAlert2
-           Swal.fire({
-            title: "¡Producto añadido!",
-            text: `"${nombre}" ha sido agregado al carrito.`,
-            icon: "success",
-            showCancelButton: true,
-            confirmButtonText: "Ir al carrito 🛒",
-            cancelButtonText: "Seguir comprando",
-            confirmButtonColor: "#28a745",
-            cancelButtonColor: "#007BFF"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "carrito.html";
-            }
-        });
-
-        console.log("🛒 Carrito actualizado:", carrito);
+            mostrarAlerta(nombre, imgSrc);
         });
     });
 }
 
-// Función para mostrar productos en `carrito.html`
+// 2️⃣ Función para mostrar productos en `carrito.html`
 function inicializarCarrito() {
     const contenedorCarrito = document.querySelector(".contenedor");
 
@@ -127,4 +111,31 @@ function inicializarCarrito() {
     });
 
     cargarCarrito();
+}
+
+// 3️⃣ Función para mostrar alerta con SweetAlert2 con botones "Ir al carrito" y "Seguir comprando"
+function mostrarAlerta(nombre, imgSrc) {
+    if (typeof Swal === "undefined") {
+        console.error("⚠ SweetAlert2 no está cargado. Verifica que el script está correctamente enlazado.");
+        alert(`"${nombre}" ha sido añadido al carrito.`);
+        return;
+    }
+
+    Swal.fire({
+        title: "Producto añadido al carrito",
+        text: `"${nombre}" ha sido agregado correctamente.`,
+        icon: "success",
+        imageUrl: imgSrc,
+        imageWidth: 100,
+        imageHeight: 100,
+        showCancelButton: true,
+        confirmButtonText: "Ir al carrito 🛒",
+        cancelButtonText: "Seguir comprando",
+        background: "#fefefe",
+        color: "#333"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "carrito.html"; // Redirige al carrito
+        }
+    });
 }
