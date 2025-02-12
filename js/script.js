@@ -15,7 +15,12 @@ function loginUser() {
     let password = document.getElementById("password").value;
 
     if (username === "" || password === "") {
-        alert("Por favor, complete todos los campos.");
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Por favor, complete todos los campos.",
+            confirmButtonColor: "#3085d6"
+        });
         return;
     }
 
@@ -33,14 +38,33 @@ function loginUser() {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert("Inicio de sesión exitoso.");
-            window.location.href = "../html/home.html";
+            Swal.fire({
+                icon: "success",
+                title: 'Bienvenido, Usuario',
+                text: "Inicio de sesion exitoso.",
+                confirmButtonColor: "#28a745",
+                timer: 2000,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.href = "../html/home.html";
+            });
         } else {
-            alert(data.message);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: data.message,
+                confirmButtonColor: "#d33"
+            });
         }
     })
     .catch(error => {
         console.error("Error en la solicitud:", error);
+        Swal.fire({
+            icon: "error",
+            title: "Error de conexion",
+            text: "No se pudo conectar con el servidor.",
+            confirmButtonColor: "#d33"
+        });
     });
 }
 

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/carrito_pro.js"></script>
+    <script src="../js/vista.js"></script>
 </head>
 <body>
     <header class="header">
@@ -29,7 +30,13 @@
                         <div class="div-actions1-header-tiktok"><a href="https://www.tiktok.com/@studio_crystal.arte" class="a_btn_tik" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div>
                     </div>
                     <div class="div-actions1-header-carrito"><a href="carrito.html" class="a_btn_carrito"><button class="btn_carrito" ><i class="fa-solid fa-cart-shopping"></i> Tu carrito</button></a></div>
-                    <div class="div-actions1-header-ingresar"><a href="formulario-login.html" class="a_btpn_ingresa"><button type="submit" class="btn_ingresar"><i class="fa-regular fa-user"></i> Ingresar</button></a>
+                    <div class="div-actions1-header-ingresar">
+                        <a href="formulario-login.html" class="a_btpn_ingresa">
+                            <button id="bt-ingresar" type="submit" class="btn_ingresar">
+                                <i class="fa-regular fa-user"></i> Ingresar
+                            </button>
+                        </a>
+                        <div id="usuario-container"></div> <!-- Aquí se mostrará el nombre del usuario -->
                     </div>
                 </div>
             </div>

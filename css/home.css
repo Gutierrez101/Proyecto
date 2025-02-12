@@ -319,3 +319,55 @@ body {
     color: #00B7C3;
     padding-right: 5px;
 }
+
+/*Boton de salir de la sesion */
+/* Estilo para el botón de ingresar */
+#btn-ingresar {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+/* Estilo cuando el usuario pasa el ratón sobre el botón de ingresar */
+#btn-ingresar:hover {
+    background-color: #45a049; /* Color de fondo más oscuro cuando se pasa el ratón */
+}
+
+#usuario-container{
+    margin-bottom: 80px;
+    padding-bottom: 50px;
+}
+
+/* Estilo para el contenedor del usuario */
+#usuario-container p {
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    color: #1c43c1; /* Color del texto */
+    margin:  -35px; /* Margen alrededor del párrafo */
+    padding: 20px;
+}
+
+/* Estilo para el botón de salir */
+#btn-salir {
+    background-color: #f44336; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    margin: 50px;
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    margin-top: 20px;
+    
+}
+
+/* Estilo cuando el usuario pasa el ratón sobre el botón de salir */
+#btn-salir:hover {
+    background-color: #d1811f; /* Color de fondo más oscuro cuando se pasa el ratón */
+}
