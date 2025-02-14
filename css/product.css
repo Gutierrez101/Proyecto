@@ -1,0 +1,134 @@
+.main-product{
+    background-color: white;
+    width: 100%;
+    height: 1300px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.body-product{
+    margin: 0px;
+}
+
+.header-product{
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003c44;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.container-prod-desc{
+    display: flex;
+}
+
+.main-product {
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container-prod-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-prod-1 {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-prod-1-img img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.container-prod-1-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nota-desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.add-to-cart {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.contact-us {
+    background-color: #28a745;
+    color: white;
+}
+
+.container-prod-2 {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.tab.active {
+    color: #000;
+}
+
+.tab-content {
+    font-size: 14px;
+    color: #333;
+}
+
+.tab-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tab-content li {
+    margin-bottom: 5px;
+}

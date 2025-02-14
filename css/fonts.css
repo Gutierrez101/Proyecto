@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'font-h1';
+    src: url('../fonts/Atomic_Age/AtomicAge-Regular.woff2') format('woff2'), 
+         url('../fonts/Atomic_Age/AtomicAge-Regular.woff') format('woff'), 
+         url('../fonts/Atomic_Age/AtomicAge-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'font-h2';
+    src: url('../fonts/Average/Average-Regular.woff2') format('woff2'), 
+         url('../fonts/Average/Average-Regular.woff') format('woff'), 
+         url('../fonts/Average/Average-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'font-footer';
+    src: url('../fonts/Splash/Splash-Regular.woff2') format('woff2'), 
+         url('../fonts/Splash/Splash-Regular.woff') format('woff'), 
+         url('../fonts/Splash/Splash-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'font-h1', sans-serif;
+    color: white;
+}
+
+/*Titles start*/
+/* Estilo para el título 1 */
+.title-start {
+    font-family: 'font-h2', sans-serif;
+    font-size: 36px;  /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para el título 2 */
+.title-start2 {
+    font-family: 'font-h2', sans-serif;
+    font-size: 45px;  /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+}
+
+.title-footer{
+    font-family: 'font-footer', sans-serif;
+    font-size: 100px;  /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+}

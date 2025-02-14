@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionVibes Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/carrito_pro2.js" defer></script>
+    <script src="../js/html2canvas.js"></script>
+    <script src="../js/jspdf.debug.js"></script>
+    <script src="../js/jspdf.plugin.autotable.min.js"></script>
+    <script src="../js/filtrar.js"></script>
+
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header-product">
+        <div class="div_header">
+            <div class="div_logo_actions_header">
+                <div class="div_h1"><a href="../html/home.html"><h1>FusionVibes</h1></a></div>
+                <div class="div_actions_1_header">
+                    <div class="div-actions1-header-buscar"><input type="text" placeholder="Buscar..."></div>
+                    <div class="div-actions1-header-hablemos"><a href="#" class="btn_hablemos"><i class="fa-solid fa-phone"></i> Hablemos</a></div>
+                    <div class="icons_head">
+                        <div class="div-actions1-header-facebook"><a href="https://www.facebook.com/studiocrystalartehechoamano" class="a_btn_fac" target="_blank"><i class="fa-brands fa-facebook"></i></a></div>
+                        <div class="div-actions1-header-instagram1"><a href="https://www.instagram.com/studio_crystal.arte/?hl=es" class="a_btn_ins1" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                        <div class="div-actions1-header-instagram2"><a href="https://www.instagram.com/tecaxenvios.ec/?hl=es" class="a_btn_ins2" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                        <div class="div-actions1-header-tiktok"><a href="https://www.tiktok.com/@studio_crystal.arte" class="a_btn_tik" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div>
+                    </div>
+                    <div class="div-actions1-header-carrito"><a href="carrito.html" class="a_btn_carrito"><button class="btn_carrito"><i class="fa-solid fa-cart-shopping"></i> Tu carrito</button></a></div>
+                    <div class="div-actions1-header-ingresar"><a href="formulario-login.html" class="a_btn_ingresa"><button class="btn_ingresar"><i class="fa-regular fa-user"></i> Ingresar</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions_2_header">
+                <nav class="nav_actions_2">
+                    <li><a href="../html/home.html">Inicio</a></li>
+                    <li>
+                        <a href="#">Categoría</a>
+                        <ul class="actions_2_menu_vertical">
+                            <li><a href="../html/productos1.html">Cuadros</a></li>
+                            <li><a href="../html/productos2.html">Tecnologías</a></li>
+                        </ul>
+                    </li>                
+                    <li><a href="../html/rastrear.html">Rastrear Producto</a></li>
+                    <li><a href="https://wa.me/+593995834206" target="_blank">Conócenos</a></li>
+                </nav>
+            </div>
+        </div>    
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Filtros -->
+        <aside class="Filtrar">
+            <h2>Filtrar Productos</h2>
+            <div>
+                <label for="buscar">Buscar:</label>
+                <input type="text" id="buscar">
+            </div>
+            <div>
+                <label for="model">Todos los Modelos:</label>
+                <select id="model">
+                    <option value="all">Todos</option>
+                </select>
+            </div>
+            <div>
+                <label for="price">Precio:</label>
+                <input type="range" id="price">
+                <span id="price-value">$0.00</span> <!-- Elemento añadido -->
+            </div>
+        </aside>
+
+        <!-- Productos -->
+        <section class="products-container">
+            <h2>Productos</h2>
+            <div class="products" id="products-list">
+                <div class="product" data-model="A" data-price="55.00">
+                    <img src="../Images/tecnology/tecnology (1).jpg" alt="Kumara">
+                    <h3>Redragon Kumara k555</h3>
+                    <p>Precio: $55.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                    
+                </div>
+                <div class="product"  data-model="A" data-price="8.00">
+                    <img src="../Images/tecnology/tecnology (2).jpg" alt="Chihiro">
+                    <h3>Chihiro</h3>
+                    <p>Precio: $8.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                   
+                </div>
+                <div class="product" data-model="A" data-price="12.00">
+                    <img src="../Images/tecnology/tecnology (3).jpg" alt="Vegeta">
+                    <h3>Vegeta</h3>
+                    <p>Precio: $12.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                    
+                </div>
+                <div class="product" data-model="B" data-price="7.00">
+                    <img src="../Images/tecnology/tecnology (4).jpg" alt="Ippo">
+                    <h3>Ippo</h3>
+                    <p>Precio: $7.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                </div>
+                <div class="product" data-model="B" data-price="10.00">
+                    <img src="../Images/tecnology/tecnology (5).jpg" alt="luffy">
+                    <h3>luffy</h3>
+                    <p>Precio: $10.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                   
+                </div>
+                <div class="product" data-model="A" data-price="15.00">
+                    <img src="../Images/tecnology/tecnology (6).jpg" alt="Goku">
+                    <h3>Goku y Gohan</h3>
+                    <p>Precio: $15.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                    
+                </div>
+            </div>
+
+            <!-- Paginación -->
+            <div class="pagination">
+                <button>&lt;</button>
+                <button onclick="window.location.href='productos1.html'" >1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>&gt;</button>
+            </div>
+        </section>
+    </main>
+    <style>
+        .whatsapp-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+    <a href="https://wa.me/+593995834206" target="_blank">
+        <img src="../imagenes/whatsapp.png" alt="WhatsApp" class="whatsapp-logo">
+    </a>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div>
+                <h4>UBICACIONES</h4>
+                <p>10103, Fausto Fernández, Puyo, Pastaza, Ecuador.</p>
+                <p>060150, Miraflores de Manzan, Latacunga, Cotopaxi, Ecuador.</p>
+                <p>FusionVibes Store</p>
+            </div>
+
+            <div class="menu-footer">
+                <h4>MENÚ INICIO</h4>
+                <a href="../html/home.html"><p>Inicio</p></a>
+                <a href="../html/home.html"><p>Categoría</p></a>
+                <a href="../html/rastrear.html"><p>Rastrear Producto</p></a>
+            </div>
+
+            <div>
+                <h4>DISCOVER</h4>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Equipo</p></a>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Nuestra Historia</p></a>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Lema del Logo</p></a>
+            </div>
+
+            <div>
+                <h4>SÍGUENOS</h4>
+                <a href="https://www.facebook.com/studiocrystalartehechoamano" target="_blank"><p><i class="fa-brands fa-facebook"></i> Facebook</p></a>
+                <a href="https://www.instagram.com/studio_crystal.arte/?hl=es" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram Cuadros</p></a>
+                <a href="https://www.instagram.com/tecaxenvios.ec/?hl=es" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram Tecnología</p></a>
+                <a href="https://www.tiktok.com/@studio_crystal.arte" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a>
+            </div>
+
+            <div class="footer-image">
+                <h2 class="title-footer">FV</h2>
+            </div>
+        </div>
+
+        <div class="derechos-reservados">
+            <div class="derechos-reservados1">
+                <p>© Todos los derechos reservados 2024</p>
+            </div>
+            <div class="derechos-reservados2">
+                <p>Hecho con </p><i class="fa-solid fa-heart"></i> <p> por DDM</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

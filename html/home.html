@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionVibes</title>
+
+    <!-- Links de importacion de iconos internet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Links de importacion de CSS-->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/carrito_pro.js"></script>
+    <script src="../js/vista.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="div_header">
+            <div class="div_logo_actions_header">
+                <div class="div_h1"><a href="../html/home.html"><h1>FusionVibes</h1></a></div>
+                <div class="div_actions_1_header">
+                    <div class="div-actions1-header-buscar"><input type="text" placeholder="Buscar..."></div>
+                    <div class="div-actions1-header-hablemos"><a href="https://wa.me/+593995834206" class="btn_hablemos"><i class="fa-solid fa-phone"></i> Hablemos</a></div>
+                    <div class="icons_head">
+                        <div class="div-actions1-header-facebook"><a href="https://www.facebook.com/studiocrystalartehechoamano" class="a_btn_fac" target="_blank"><i class="fa-brands fa-facebook"></i></a></div>
+                        <div class="div-actions1-header-instagram1"><a href="https://www.instagram.com/studio_crystal.arte/?hl=es" class="a_btn_ins1" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                        <div class="div-actions1-header-instagram2"><a href="https://www.instagram.com/tecaxenvios.ec/?hl=es" class="a_btn_ins2" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                        <div class="div-actions1-header-tiktok"><a href="https://www.tiktok.com/@studio_crystal.arte" class="a_btn_tik" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div>
+                    </div>
+                    <div class="div-actions1-header-carrito"><a href="carrito.html" class="a_btn_carrito"><button class="btn_carrito" ><i class="fa-solid fa-cart-shopping"></i> Tu carrito</button></a></div>
+                    <div class="div-actions1-header-ingresar">
+                        <a href="formulario-login.html" class="a_btpn_ingresa">
+                            <button id="bt-ingresar" type="submit" class="btn_ingresar">
+                                <i class="fa-regular fa-user"></i> Ingresar
+                            </button>
+                        </a>
+                        <div id="usuario-container"></div> <!-- Aquí se mostrará el nombre del usuario -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions_2_header">
+                <nav class="nav_actions_2">
+                    <li><a href="#">Inicio</a></li>
+                    <li>
+                        <a href="#">Categoría</a>
+                        <ul class="actions_2_menu_vertical">
+                            <li><a href="../html/productos1.html">Cuadros</a></li>
+                            <li><a href="../html/productos2.html">Tecnologías</a></li>
+                        </ul>
+                    </li>                
+                    <li><a href="../html/rastrear.html">Rastrear Producto</a></li>
+                    <li><a href="https://wa.me/+593995834206">Conócenos</a></li>
+                </nav>
+            </div>
+
+
+            <div class="slider-frame">
+                <ul>
+                    <li><img src="../Images/Others/banner1.jpg" alt=""></li>
+                    <li><img src="../Images/Others/banner2.jpg" alt=""></li>
+                    <li><img src="../Images/Others/banner3.jpg" alt=""></li>
+                    <li><img src="../Images/Others/banner4.jpg" alt=""></li>
+                </ul>
+            </div>
+
+        </div>    
+    </header>
+
+    <div id="login-container"></div>
+
+    <main class="main">
+        <div class="container-titles-start">
+            <h3 class="title-start">La base de tu creatividad y tecnología</h3>
+            <h2 class="title-start2">Bienvenidos a la Tienda FusionVibes</h2>
+        </div>
+
+        <div class="products">          
+            <div>
+                <div class="product-card">
+                    <img src="../Images/pictures/anime (1).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Images/tecnology/tecnology (1).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div> 
+                </div>
+            </div>
+
+            <div>
+                <div class="product-card">
+                    <img src="../Images/pictures/anime (2).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Images/tecnology/tecnology (2).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="product-card">
+                    <img src="../Images/pictures/anime (3).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Images/tecnology/tecnology (3).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="product-card">
+                    <img src="../Images/pictures/anime (4).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Images/tecnology/tecnology (4).jpg" alt="Producto">
+                    <div class="product-content">
+                        <h4 class="title-product">PRODUCT<br>NAME</h4>
+                        <p class="precio-product-word">PRECIO</p><p class="precio-product">$100.00</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-columns">
+            <div>
+                <h4>UBICACIONES</h4>
+                <p>10103, Fausto Fernández, Puyo, Pastaza, Ecuador.</p>
+                <p>060150, Miraflores de Manzan, Latacunga, Cotopaxi, Ecuador.</p>
+                <p>FusionVibes Store</p>
+            </div>
+
+            <div class="menu-footer">
+                <h4>MENÚ INICIO</h4>
+                <a href="../html/home.html"><p>Inicio</p></a>
+                <a href="../html/home.html"><p>Categoría</p></a>
+                <a href="../html/rastrear.html"><p>Rastrear Producto</p></a>
+            </div>
+
+            <div>
+                <h4>DISCOVER</h4>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Equipo</p></a>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Nuestra Historia</p></a>
+                <a href="https://wa.me/+593995834206" target="_blank"><p>Lema del Logo</p></a>
+            </div>
+
+            <div>
+                <h4>SÍGUENOS</h4>
+                <a href="https://www.facebook.com/studiocrystalartehechoamano" target="_blank"><p><i class="fa-brands fa-facebook"></i> Facebook</p></a>
+                <a href="https://www.instagram.com/studio_crystal.arte/?hl=es" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram Cuadros</p></a>
+                <a href="https://www.instagram.com/tecaxenvios.ec/?hl=es" target="_blank"><p><i class="fa-brands fa-instagram"></i> Instagram Tecnología</p></a>
+                <a href="https://www.tiktok.com/@studio_crystal.arte" target="_blank"><p><i class="fa-brands fa-tiktok"></i> TikTok</p></a>
+            </div>
+
+            <div class="footer-image">
+                <h2 class="title-footer">FV</h2>
+            </div>
+        </div>
+
+        <div class="derechos-reservados">
+            <div class="derechos-reservados1">
+                <p>© Todos los derechos reservados 2024</p>
+            </div>
+            <div class="derechos-reservados2">
+                <p>Hecho con </p><i class="fa-solid fa-heart"></i> <p> por DDM</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
