@@ -62,6 +62,32 @@
             <button class="checkout-btn" onclick="GenerarPDF()">Ir a pagar</button>
         </div>
     </div>
+    
+     
+    <section class="carro-total">
+        <h2>Carro Total:</h2>
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td id="subtotal">$0.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="envio" checked> Recogida Física - Precio fijo: $0.00
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="envio"> Por Servientrega - Precio fijo: $6.00
+                </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td id="total">$0.00</td>
+            </tr>
+        </table>
+        <button class="finalizar-compra" class="checkout-btn" onclick="GenerarPDF()">Finalizar compra</button>
+    </section>
 </main>
 
 <footer class="footer">
@@ -111,28 +137,53 @@
 </footer>
 </body>
 </html>
+
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch("../php/carrito.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.subtotal) {
+                    document.getElementById("subtotal").textContent = `$${data.subtotal.toFixed(2)}`;
+                    let total = data.subtotal + (document.querySelector("input[name='envio']:checked").nextSibling.nodeValue.includes("$6.00") ? 6.00 : 0.00);
+                    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+                }
+            })
+            .catch(error => console.error("Error al cargar el carrito:", error));
+    });
     //formato de la factura
     function GenerarPDF(){
-        
-        var doc=new jsPDF();
-        var y=10;
-        var x=10;
-        doc.setFonType=('times');
+        var doc = new jsPDF();
+        var y = 10;
+        var x = 10;
+
+        doc.setFont("times");
         doc.setFontSize(18);
-        doc.text(90,y,"Factura");
-        y+=10;
+        doc.text(90, y, "Factura");
+        
+        y += 10;
         doc.setFontSize(12);
-        doc.text(x,y,'Nombre');
-        doc.text(x,y+10,'Echo Pop');
-        doc.text(x+30,y,'Descripcion');
-        doc.text(x+30,y+10,'Producto Tecnologico');
-        doc.text(x+75,y,'Cantidad');
-        doc.text(x+82,y+10,'3');
-        doc.text(x+100,y,'Precio unitario');
-        doc.text(x+107,y+10,'25.56');
-        doc.text(x+140,y,'Precio Total');
-        doc.text(x+145,y+10,'135.67');
-        doc.save("Fectura.pdf");
-    }
-</script>
+        doc.text(x, y, "Nombre");
+        doc.text(x + 30, y, "Descripción");
+        doc.text(x + 75, y, "Cantidad");
+        doc.text(x + 100, y, "Precio unitario");
+
+        // Aquí se debe obtener dinámicamente la información del carrito
+        var productos = [
+            { nombre: "Echo Pop", descripcion: "Producto Tecnológico", cantidad: 3, precio: 25.00 },
+            // Puedes obtener esto desde el carrito
+        ];
+
+        y += 10;
+        productos.forEach(producto => {
+            doc.text(x, y, producto.nombre);
+            doc.text(x + 30, y, producto.descripcion);
+            doc.text(x + 75, y, producto.cantidad.toString());
+            doc.text(x + 100, y, `$${producto.precio.toFixed(2)}`);
+            y += 10;
+        });
+
+        doc.save("Factura.pdf");
+}
+
+</script> 
