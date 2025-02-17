@@ -111,7 +111,7 @@
 }
 
 /* Botón de vaciar carrito */
-.checkout-btn {
+#vaciar-carrito {
     display: block;
     width: 100%;
     background: #007BFF;
@@ -124,7 +124,7 @@
     margin-top: 20px;
 }
 
-.checkout-btn:hover {
+#vaciar-carrito:hover {
     background: #0056b3;
 }
 

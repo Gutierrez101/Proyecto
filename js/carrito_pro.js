@@ -1,80 +1,23 @@
+// carrito_pro.js (modificado con imágenes, disposición de botones y confirmación de compra)
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector(".products")) {
         inicializarProductosMain();
     } else if (document.querySelector(".contenedor")) {
         inicializarCarrito();
     }
+
+    document.getElementById("finalizar-compra")?.addEventListener("click", GenerarPDF);
 });
 
-// Función para agregar productos desde `<main>` en la tienda principal
-function inicializarProductosMain() {
-    const botones = document.querySelectorAll(".product-card button");
-
-    if (botones.length === 0) {
-        console.error("⚠ No se encontraron botones de 'Añadir al carrito'. Verifica la estructura del HTML.");
-        return;
-    }
-
-    botones.forEach(boton => {
-        boton.addEventListener("click", (event) => {
-            const producto = event.target.closest(".product-card");
-            if (!producto) return;
-
-            const nombre = producto.querySelector(".title-product")?.textContent.replace("\n", " ") || "Producto sin nombre";
-            const precio = producto.querySelector(".precio-product")?.textContent.replace("$", "") || "0.00";
-            const imgSrc = producto.querySelector("img")?.src || "";
-
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-            // Verificar si el producto ya está en el carrito
-            let productoExistente = carrito.find(p => p.nombre === nombre);
-            if (productoExistente) {
-                productoExistente.cantidad += 1;
-            } else {
-                carrito.push({ nombre, precio, imgSrc, cantidad: 1 });
-            }
-
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-
-           // 🔥 Nuevo Alert con SweetAlert2
-           Swal.fire({
-            title: "¡Producto añadido!",
-            text: `"${nombre}" ha sido agregado al carrito.`,
-            icon: "success",
-            showCancelButton: true,
-            confirmButtonText: "Ir al carrito 🛒",
-            cancelButtonText: "Seguir comprando",
-            confirmButtonColor: "#28a745",
-            cancelButtonColor: "#007BFF"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "carrito.html";
-            }
-        });
-
-        console.log("🛒 Carrito actualizado:", carrito);
-        });
-    });
-}
-
-// Función para mostrar productos en `carrito.html`
 function inicializarCarrito() {
     const contenedorCarrito = document.querySelector(".contenedor");
-
-    if (!contenedorCarrito) {
-        console.error("No se encontró el contenedor del carrito.");
-        return;
-    }
+    if (!contenedorCarrito) return;
 
     function cargarCarrito() {
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        
-        contenedorCarrito.innerHTML = `
-            <span class="cerrado">&times;</span>
-            <h2>Tu carrito</h2>
-            <img src="../Images/entrega.png" width="50" height="50">
-        `;
+        let subtotal = 0;
 
+        contenedorCarrito.innerHTML = `<span class="cerrado">&times;</span><h2>Tu carrito</h2><img src="../Images/entrega.png" width="50" height="50">`;
         if (carrito.length === 0) {
             contenedorCarrito.innerHTML += `<p class="carrito-vacio">No tienes productos en el carrito aún.</p>`;
         } else {
@@ -82,30 +25,32 @@ function inicializarCarrito() {
             listaProductos.classList.add("lista-productos");
 
             carrito.forEach((producto, index) => {
+                subtotal += parseFloat(producto.precio) * producto.cantidad;
                 listaProductos.innerHTML += `
                     <div class="producto-carrito">
-                        <img src="${producto.imgSrc}" alt="${producto.nombre}">
+                        <img src="${producto.imgSrc}" alt="${producto.nombre}" class="producto-imagen">
                         <div class="info-producto">
                             <h3>${producto.nombre}</h3>
+                            <p>${producto.descripcion || "Sin descripción"}</p>
                             <p>Precio: $${producto.precio}</p>
                             <p>Cantidad: ${producto.cantidad}</p>
                         </div>
                         <button class="eliminar" data-index="${index}">Eliminar</button>
-                    </div>
-                `;
+                    </div>`;
             });
-
             contenedorCarrito.appendChild(listaProductos);
-
-            // Agregar botones "Vaciar Carrito" e "Ir a pagar"
             contenedorCarrito.innerHTML += `
-                <button class="checkout-btn" id="vaciar-carrito">Vaciar Carrito</button>
-                <button class="checkout-btn pagar-btn" onclick="GenerarPDF()">Ir a pagar</button>
-            `;
+                <div class="botones-carrito">
+                    <button id="vaciar-carrito">Vaciar Carrito</button>
+                </div>`;
         }
+        actualizarTotal(subtotal);
+    }
 
-        // Asignar evento al botón "Vaciar Carrito"
-        document.getElementById("vaciar-carrito")?.addEventListener("click", vaciarCarrito);
+    function actualizarTotal(subtotal) {
+        let envio = document.querySelector("input[name='envio']:checked")?.value === "6" ? 6 : 0;
+        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById("total").textContent = `$${(subtotal + envio).toFixed(2)}`;
     }
 
     function eliminarProducto(index) {
@@ -123,8 +68,48 @@ function inicializarCarrito() {
     contenedorCarrito.addEventListener("click", (event) => {
         if (event.target.classList.contains("eliminar")) {
             eliminarProducto(event.target.dataset.index);
+        } else if (event.target.id === "vaciar-carrito") {
+            vaciarCarrito();
         }
     });
 
     cargarCarrito();
+}
+
+function GenerarPDF() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    if (carrito.length === 0) {
+        Swal.fire("Tu carrito está vacío", "Agrega productos antes de finalizar la compra", "warning");
+        return;
+    }
+
+    Swal.fire({
+        title: "Generando factura...",
+        text: "Por favor, espera unos segundos",
+        icon: "info",
+        timer: 2000,
+        showConfirmButton: false
+    }).then(() => {
+        const doc = new jsPDF();
+        doc.setFont("times");
+        doc.setFontSize(18);
+        doc.text(80, 10, "Factura de Compra");
+        doc.setFontSize(12);
+
+        let total = 0;
+        const data = carrito.map(prod => {
+            total += parseFloat(prod.precio) * prod.cantidad;
+            return [prod.nombre, prod.descripcion || "Sin descripción", `$${prod.precio}`];
+        });
+
+        doc.autoTable({
+            head: [["Nombre", "Descripción", "Precio Unitario"]],
+            body: data,
+            startY: 20
+        });
+
+        doc.text(20, doc.autoTable.previous.finalY + 10, `Total: $${total.toFixed(2)}`);
+        doc.save("Factura.pdf");
+        window.location.href = "home.html";
+    });
 }
