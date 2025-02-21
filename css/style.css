@@ -139,3 +139,54 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.pagination button {
+    background-color: #003c44; /* Background color for the buttons */
+    color: #fff; /* Text color for the buttons */
+    border: none; /* Remove border */
+    padding: 5px 10px; /* Padding for the buttons */
+    margin: 5px; /* Margin between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.pagination button:hover {
+    background-color: #354f56; /* Background color on hover */
+}
+.Filtrar{
+    background-color: #003c44;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+#buscar-btn {
+    background-color: #00B7C3; 
+    color: #fff; 
+    border: none; 
+    padding: 5px 10px; 
+    margin: 5px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+
+#buscar-btn:hover {
+    background-color: #005c6a; 
+}
+#buscar {
+    background-color: #f0f0f0; 
+    color: #333; 
+    border: 1px solid #ccc; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+}
+
+#buscar:focus {
+    background-color: #e0e0e0; 
+    border-color: #007bff; 
+}

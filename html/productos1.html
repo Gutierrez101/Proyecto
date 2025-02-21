@@ -9,10 +9,7 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/script.js" defer></script>
-    <script src="../js/datos.js"></script>
-    <script src="../js/carrito_pro2.js" defer></script>
     <script src="../js/html2canvas.js"></script>
     <script src="../js/jspdf.debug.js"></script>
     <script src="../js/jspdf.plugin.autotable.min.js"></script>
@@ -64,6 +61,7 @@
             <div>
                 <label for="buscar">Buscar:</label>
                 <input type="text" id="buscar">
+                
             </div>
             <div>
                 <label for="model">Todos los Modelos:</label>
@@ -83,45 +81,44 @@
         <h2>Productos</h2>
         
             <div class="products" id="products-list">
-                <!--
-                <div class="product" data-model="A" data-price="50.00">
+                <div class="product" data-model="A" data-price="15.00">
                     <a href="../html/description.html"><img src="../Images/pictures/anime (14).jpg" alt="Echo Pop"></a>
-                    <h3>Echo Pop</h3>
-                    <p>Precio: $50.00</p>
-                    <button class="carrito_button">Añadir al carrito</button>
-                    
-                </div> -->
-                <div class="product" data-model="A" data-price="60.00">
-                    <img src="../Images/pictures/anime (2).jpg" alt="Echo Dot">
-                    <h3>Echo Dot</h3>
-                    <p>Precio: $60.00</p>
+                    <h3>Boku no Hero</h3>
+                    <p>Precio: $15.00</p>
                     <button class="carrito_button">Añadir al carrito</button>
                     
                 </div>
-                <div class="product" data-model="A" data-price="80.00">
+                <div class="product" data-model="A" data-price="11.00">
+                    <img src="../Images/pictures/anime (2).jpg" alt="Echo Dot">
+                    <h3>Detective</h3>
+                    <p>Precio: $11.00</p>
+                    <button class="carrito_button">Añadir al carrito</button>
+                    
+                </div>
+                <div class="product" data-model="A" data-price="13.00">
                     <img src="../Images/pictures/anime (3).jpg" alt="Echo Show">
-                    <h3>Echo Show</h3>
-                    <p>Precio: $80.00</p>
+                    <h3>HunterXHunter</h3>
+                    <p>Precio: $13.00</p>
                     <button class="carrito_button">Añadir al carrito</button>
                    
                 </div>
                 <div class="product" data-model="B" data-price="15.00">
                     <img src="../Images/pictures/anime (4).jpg" alt="Soro">
-                    <h3>Soro</h3>
+                    <h3>Killua</h3>
                     <p>Precio: $15.00</p>
                     <button class="carrito_button">Añadir al carrito</button>
                    
                 </div>
                 <div class="product" data-model="B" data-price="12.00">
                     <img src="../Images/pictures/anime (5).jpg" alt="Killua">
-                    <h3>Killua</h3>
+                    <h3>Levi</h3>
                     <p>Precio: $12.00</p>
                     <button class="carrito_button">Añadir al carrito</button>
                    
                 </div>
                 <div class="product" data-model="B" data-price="10.00">
                     <img src="../Images/pictures/anime (6).jpg" alt="Levi">
-                    <h3>Levi</h3>
+                    <h3>Soro Roronoha</h3>
                     <p>Precio: $10.00</p>
                     <button class="carrito_button">Añadir al carrito</button>
                     
@@ -135,7 +132,7 @@
                 <button onclick="window.location.href='productos1.html'" >1</button>
                 <button onclick="window.location.href='productos2.html'">2</button>
                 <button>3</button>
-                <button>&gt;</button>
+                <button onclick="window.location.href='productos2.html'">&gt;</button>
             </div>
         </section>
     </main>
